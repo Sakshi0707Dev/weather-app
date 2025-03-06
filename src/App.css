@@ -1,302 +1,52 @@
-
-/* Ensures gradient covers full height dynamically */
-html, body {  
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  width: 100%;
-  background: linear-gradient(to bottom, #87CEFA, #4682B4);
-  background-attachment: fixed;
-  transition: background 0.5s ease;
-}
-
-/* Ensures content expands properly when more data is added */
 body {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Responsive container */
-.app-container {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
   text-align: center;
+}
+
+.app-container {
+  width: 400px;
+  margin: 50px auto;
   padding: 20px;
-  width: 90%; /* Uses more screen space on mobile */
-  max-width: 400px;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
-
-/* Mobile optimization */
-@media (max-width: 480px) {
-  .app-container {
-    padding: 15px;
-    width: 95%; /* Slightly wider on mobile */
-  }
-  
-  body {
-    font-size: 16px; /* Larger text for better readability */
-  }
-}
-
 
 .search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+  margin: 20px 0;
 }
 
-.search-input {
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 8px;
+.search-container input {
+  padding: 10px;
   width: 70%;
-  border: 2px solid black;
-}
-
-.search-button {
-  background: #007BFF;
-  color: white;
-  border: none;
-  padding: 12px 15px;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.spinner {
-  border: 4px solid rgba(255, 255, 255, 0.3);
-  border-top: 4px solid #007BFF;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 1s linear infinite;
-  margin: 20px auto;
-}
-
-/* Default Background (Before Fetching) */
-
-/* Daytime Background */
-.daytime {
-  background: linear-gradient(to bottom, #87CEEB, #ADD8E6); /* Light Blue */
-  color: #000;
-}
-
-/* Nighttime Background */
-.nighttime {
-  background: linear-gradient(to bottom, #001F3F, #011627); /* Dark Blue */
-  color: #fff;
-
-}
-
-/*
-/* ✅ Modern title styling */
-.app-title {
-  font-size: 28px;
-  font-weight: bold;
-  color: gold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-/* ✅ Loading spinner (Hourglass Style) */
-.spinner {
-  border: 5px solid rgba(255, 255, 255, 0.3);
-  border-top: 5px solid #3498db;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 1s linear infinite;
-  margin: 20px auto;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-.toggle-btn {
-  margin: 10px;
-  padding: 10px;
-  background-color: #444;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.history-container button {
-  margin: 5px;
-  padding: 5px;
-  background: white;
-  border: 1px solid black;
-  cursor: pointer;
-}
-
-
-.forecast {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 10px;
-  margin: 5px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  text-align: center;
-  font-weight: bold;
+}
+
+.search-container button {
+  padding: 10px;
+  margin-left: 5px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.weather-card {
+  margin-top: 20px;
 }
 
 .forecast-container {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
-
-.show-more-btn {
-  margin-top: 10px;
-  padding: 10px;
-  width: 100%;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: 0.3s;
+.forecast {
+  display: flex;
+  justify-content: space-around;
 }
 
-.show-more-btn:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-
-.dark-mode .show-more-btn {
-  background-color: #444;
-  color: white;
-}
-
-.dark-mode .show-more-btn:hover {
-  background-color: #666;
-}
-/* 🌙 Dark Mode */
-.dark-mode {
-  background-color: #121212; /* Full dark mode background */
-  color: #e0e0e0; /* Light text for readability */
-  transition: background 0.5s ease, color 0.5s ease;
-}
-
-/* 🌓 Dark Mode Button */
-.dark-mode-toggle {
-  background: #333; /* Dark background */
-  color: #fff; /* White text */
-  border: 1px solid #555;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.dark-mode-toggle:hover {
-  background: #444;
-}
-
-/* 🌫️ Dark Mode for Bottom Section */
-.bottom-section {
-  background-color: #1a1a1a; /* Darker bottom */
-  padding: 20px;
+.forecast-item {
   text-align: center;
 }
-
-/* 🖱️ Hover Effect */
-.clear-history-btn:hover {
-  background: hsl(0, 90%, 47%); /* Darker Red */
-  transform: scale(1.05);
-}
-
-/* 🌙 Dark Mode Button */
-.dark-mode .clear-history-btn {
-  background: #FF9800; 
-  color: black;
-}
-
-.dark-mode .clear-history-btn:hover {
-  background: #F57C00; 
-}
-
-/* 🎨 Background Auto-Switch */
-.daytime {
-  background: linear-gradient(to bottom, #87CEEB, #ADD8E6); /* Light Blue */
-  color: #000;
-}
-
-.nighttime {
-  background: linear-gradient(to bottom, #001F3F, #011627); /* Dark Blue */
-  color: #fff;
-}
-
-/* 🔲 Recent Searches Container */
-.history-container {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 10px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.dark-mode .history-container {
-  background: rgba(0, 0, 0, 0.4);
-}
-/* 📍 Recent Searches Section */
-.bottom-section {
-  background-color: #f8f9fa;
-  padding: 20px;
-  text-align: center;
-  border-radius: 10px;
-}
-
-/* 🌇 Day Mode (Bright) */
-.day-mode {
-  background: linear-gradient(to bottom, #87CEEB, #ADD8E6); 
-  color: #000;
-}
-
-/* 🌙 Night Mode (Dark) */
-.night-mode {
-  background: linear-gradient(to bottom, #001F3F, #011627); /* Dark Blue */
-  color: #fff;
-}
-
-/* 🖤 Dark Mode (Manual Toggle) */
-.dark-mode {
-  background: linear-gradient(to bottom, #121212, #232323);
-  color: white;
-}
-
-
-/* 🖤 Dark Mode Button */
-.dark-mode-toggle {
-  padding: 10px;
-  background: #333;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.dark-mode-toggle:hover {
-  background: #555;
-}
-
-/* 🔎 Search Input */
-.search-input {
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 8px;
-  width: 70%;
-  border: 2px solid black;
-}
-
-

@@ -11,20 +11,22 @@ export interface WeatherData {
   icon: string;
 }
 
+const API_KEY = "473db6c6392f454fa31112302250303";  // Ensure to keep it secure
+const BASE_URL = "https://api.weatherapi.com/v1/forecast.json";
+
 export const fetchWeather = async (
   city: string,
-  setWeather: (data: WeatherData | null) => void,  // ✅ Allow null
+  setWeather: (data: WeatherData | null) => void,
   setError: (error: string) => void
 ) => {
   try {
-    const response = await fetch(
-      `https://api.weatherapi.com/v1/forecast.json?key=473db6c6392f454fa31112302250303&q=${city}&days=1&aqi=no&alerts=no`
-    );
-    const data = await response.json();
+    const response = await fetch(`${BASE_URL}?key=${API_KEY}&q=${city}&days=1&aqi=no&alerts=no`);
+    if (!response.ok) throw new Error("Network response was not ok");
 
+    const data = await response.json();
     if (!data || !data.location) {
       setError("City not found");
-      setWeather(null);  // ✅ Now properly handles null
+      setWeather(null);
       return;
     }
 
@@ -44,7 +46,7 @@ export const fetchWeather = async (
     setWeather(weatherData);
     setError("");
   } catch (error) {
-    setError("Failed to fetch weather data.");
-    setWeather(null);  // ✅ This will now work correctly
+    setError(error instanceof Error ? error.message : "Failed to fetch weather data.");
+    setWeather(null);
   }
 };

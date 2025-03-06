@@ -1,28 +1,31 @@
 
-body {  
+/* Ensures gradient covers full height dynamically */
+html, body {  
   margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  width: 100%;
   background: linear-gradient(to bottom, #87CEFA, #4682B4);
   background-attachment: fixed;
   transition: background 0.5s ease;
 }
 
-/* Ensures content expands properly */
-html, body {
-  width: 100%;
-  height: auto;
-  min-height: 100vh;
+/* Ensures content expands properly when more data is added */
+body {
+  display: flex;
+  flex-direction: column;
 }
 
+/* Responsive container */
 .app-container {
   text-align: center;
   padding: 20px;
-  width: 90%; /* Responsive width */
-  max-width: 400px; /* Prevents it from getting too large */
+  width: 90%; /* Uses more screen space on mobile */
+  max-width: 400px;
   border-radius: 15px;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
@@ -30,14 +33,15 @@ html, body {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Ensures the app remains readable on smaller screens */
+/* Mobile optimization */
 @media (max-width: 480px) {
   .app-container {
     padding: 15px;
+    width: 95%; /* Slightly wider on mobile */
   }
   
   body {
-    font-size: 14px; /* Slightly smaller font for small screens */
+    font-size: 16px; /* Larger text for better readability */
   }
 }
 

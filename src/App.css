@@ -1,11 +1,13 @@
-body {
+
+body {  
   margin: 0;
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(to bottom, #87CEFA, #4682B4);
+  background-attachment: fixed;
   transition: background 0.5s ease;
 }
 
@@ -20,12 +22,6 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.app-title {
-  font-size: 26px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #FFD700;
-}
 
 .search-container {
   display: flex;
@@ -62,10 +58,6 @@ body {
   margin: 20px auto;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
 /* Default Background (Before Fetching) */
 
 /* Daytime Background */
@@ -126,15 +118,6 @@ body {
   cursor: pointer;
 }
 
-.forecast {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 5px;
-  margin: 5px;
-  border-radius: 5px;
-}
-.forecast-container {
-  margin-top: 10px;
-}
 
 .forecast {
   background: rgba(255, 255, 255, 0.2);
@@ -144,6 +127,11 @@ body {
   text-align: center;
   font-weight: bold;
 }
+
+.forecast-container {
+  margin-top: 10px;
+}
+
 
 .show-more-btn {
   margin-top: 10px;
@@ -160,6 +148,7 @@ body {
 .show-more-btn:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
+
 
 .dark-mode .show-more-btn {
   background-color: #444;
@@ -198,69 +187,20 @@ body {
   text-align: center;
 }
 
-/* 📅 Forecast Cards */
-.forecast-card {
-  background: #333; /* Dark card background */
-  color: #e0e0e0;
-  border-radius: 8px;
-  padding: 10px;
-  margin: 5px;
-  text-align: center;
-}
-
-/* 🎭 Show More / Show Less Button */
-.show-more-btn {
-  background: #fff;
-  color: #000;
-  border: none;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.show-more-btn:hover {
-  background: #ccc;
-}
-/* 🌟 Updated Recent Searches Section */
-.history-container {
-  background: rgba(255, 255, 255, 0.2); /* ✅ Softer background */
-  padding: 15px;
-  border-radius: 10px;
-  margin-top: 10px;
-  text-align: center;
-}
-
-
-
-/* 🗑️ Clear Search History Button - Light Mode */
-.clear-history-btn {
-  margin-top: 10px;
-  padding: 10px 15px;
-  background: #ffffff; /* 🔴 Bright Red */
-  color:#007bff;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
 /* 🖱️ Hover Effect */
 .clear-history-btn:hover {
-  background: #212529; /* Darker Red */
+  background: hsl(0, 90%, 47%); /* Darker Red */
   transform: scale(1.05);
 }
 
 /* 🌙 Dark Mode Button */
 .dark-mode .clear-history-btn {
-  background: #FF9800; /* 🟠 Bright Orange */
+  background: #FF9800; 
   color: black;
 }
 
 .dark-mode .clear-history-btn:hover {
-  background: #F57C00; /* Darker Orange */
+  background: #F57C00; 
 }
 
 /* 🎨 Background Auto-Switch */
@@ -287,17 +227,15 @@ body {
 }
 /* 📍 Recent Searches Section */
 .bottom-section {
-  background-color: #f8f9fa; /* Light gray instead of black */
+  background-color: #f8f9fa;
   padding: 20px;
   text-align: center;
   border-radius: 10px;
 }
 
-
-
 /* 🌇 Day Mode (Bright) */
 .day-mode {
-  background: linear-gradient(to bottom, #87CEEB, #ADD8E6); /* Light Blue */
+  background: linear-gradient(to bottom, #87CEEB, #ADD8E6); 
   color: #000;
 }
 
@@ -338,17 +276,4 @@ body {
   border: 2px solid black;
 }
 
-/* 🔍 Search Button */
-.search-button {
-  background: #007BFF;
-  color: white;
-  border: none;
-  padding:  15px;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-}
 
-.search-button:hover {
-  background: #0056b3;
-}

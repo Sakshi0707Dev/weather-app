@@ -1,54 +1,52 @@
-# React + TypeScript + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple weather application built with **React + TypeScript**, using the **WeatherAPI** to fetch real-time weather data.
 
-Currently, two official plugins are available:
+## Features
+- Search for any city and get current weather details.
+- Displays temperature, humidity, wind speed, sunrise & sunset time.
+- Fetches and displays weather icons dynamically.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **React + TypeScript**
+- **Vite**
+- **WeatherAPI**
 
-## Expanding the ESLint configuration
+## Project Structure
+- `src/components/` → UI components like `SearchBar.tsx`, `WeatherCard.tsx`, etc.
+- `src/api.ts` → Handles API calls for fetching weather data.
+- `src/type.ts` → Defines TypeScript interfaces for structured data.
+- `public/` → Contains `index.html` and other public assets.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Installation
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-username/weather-app.git
+   ```
+2. Navigate into the project folder:
+   ```sh
+   cd weather-app
+   ```
+3. Install dependencies:
+   ```sh
+   npm install
+   ```
+4. Create a `.env` file and add your WeatherAPI key:
+   ```sh
+   VITE_API_KEY=your_api_key_here
+   ```
+5. Start the development server:
+   ```sh
+   npm run dev
+   ```
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Deployment
+This project is deployed on **Vercel**. Live demo:
+[Weather App Live](https://weather-app-h2mc.vercel.app/)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Contributing
+Feel free to fork this project, make changes, and submit a pull request!
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
+Made  by Sakshi
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```

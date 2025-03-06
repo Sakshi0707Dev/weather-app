@@ -11,15 +11,34 @@ body {
   transition: background 0.5s ease;
 }
 
+/* Ensures content expands properly */
+html, body {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+}
+
 .app-container {
   text-align: center;
   padding: 20px;
-  width: 400px;
+  width: 90%; /* Responsive width */
+  max-width: 400px; /* Prevents it from getting too large */
   border-radius: 15px;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Ensures the app remains readable on smaller screens */
+@media (max-width: 480px) {
+  .app-container {
+    padding: 15px;
+  }
+  
+  body {
+    font-size: 14px; /* Slightly smaller font for small screens */
+  }
 }
 
 
